@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Consulta Externa, Trabajo Social |
 | **Grupo funcional** | Derechohabiencia y receta |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-01-validar-vigencia-derechos` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

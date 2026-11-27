@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Piso Hospitalario, Quirófano |
 | **Grupo funcional** | Distribución hospitalaria |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-10-devolucion-medicacion` |
+| **Rama de trabajo** | `feature/22041153ems` |
 | **Responsable** | @22041153ems |
 
 ## Descripción y efecto

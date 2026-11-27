@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Consulta Externa, Expediente |
 | **Grupo funcional** | Derechohabiencia y receta |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-03-receta-resurtible` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

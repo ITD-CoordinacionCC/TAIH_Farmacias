@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Quirófano, Urgencias |
 | **Grupo funcional** | Medicamentos controlados |
 | **Microservicio** | `Farmacia.MedicamentosControlados.Api` |
-| **Rama de trabajo** | `feature/CDU-16-desecho-envases` |
+| **Rama de trabajo** | `feature/22041153ems` |
 | **Responsable** | @22041153ems |
 
 ## Descripción y efecto

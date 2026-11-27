@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Piso Hospitalario |
 | **Grupo funcional** | Distribución hospitalaria |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-08-dosis-unitaria` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

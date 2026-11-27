@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Expediente Clínico |
 | **Grupo funcional** | Farmacovigilancia y alertas |
 | **Microservicio** | `Farmacia.ValidacionClinica.Api` |
-| **Rama de trabajo** | `feature/CDU-18-reporte-farmacovigilancia` |
+| **Rama de trabajo** | `feature/angelornelas16` |
 | **Responsable** | @AngelOrnelas16 |
 
 ## Descripción y efecto

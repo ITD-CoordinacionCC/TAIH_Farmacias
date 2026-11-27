@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Seguridad Informática |
 | **Grupo funcional** | Medicamentos controlados |
 | **Microservicio** | `Farmacia.MedicamentosControlados.Api` |
-| **Rama de trabajo** | `feature/CDU-14-receta-especial-controlados` |
+| **Rama de trabajo** | `feature/22041153ems` |
 | **Responsable** | @22041153ems |
 
 ## Descripción y efecto

@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Consulta Externa, Urgencias |
 | **Grupo funcional** | Derechohabiencia y receta |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-02-validar-receta` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

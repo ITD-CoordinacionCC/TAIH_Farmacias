@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Expediente Clínico |
 | **Grupo funcional** | Seguridad farmacoterapéutica |
 | **Microservicio** | `Farmacia.ValidacionClinica.Api` |
-| **Rama de trabajo** | `feature/CDU-11-interacciones-duplicidades` |
+| **Rama de trabajo** | `feature/22041153ems` |
 | **Responsable** | @22041153ems |
 
 ## Descripción y efecto

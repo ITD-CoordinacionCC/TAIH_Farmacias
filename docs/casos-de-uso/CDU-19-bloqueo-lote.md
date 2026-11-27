@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Almacén General, Quirófano |
 | **Grupo funcional** | Farmacovigilancia y alertas |
 | **Microservicio** | `Farmacia.CatalogoInventario.Api` |
-| **Rama de trabajo** | `feature/CDU-19-bloqueo-lote` |
+| **Rama de trabajo** | `feature/angelornelas16` |
 | **Responsable** | @AngelOrnelas16 |
 
 ## Descripción y efecto

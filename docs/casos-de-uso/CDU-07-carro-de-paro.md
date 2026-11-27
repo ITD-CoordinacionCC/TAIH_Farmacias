@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Urgencias |
 | **Grupo funcional** | Distribución hospitalaria |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-07-carro-de-paro` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

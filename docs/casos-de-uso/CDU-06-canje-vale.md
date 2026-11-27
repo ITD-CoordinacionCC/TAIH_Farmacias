@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Almacén General |
 | **Grupo funcional** | Dispensación ambulatoria y vales |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-06-canje-vale` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

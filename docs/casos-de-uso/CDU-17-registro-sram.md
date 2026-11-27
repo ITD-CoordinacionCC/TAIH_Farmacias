@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Expediente Clínico |
 | **Grupo funcional** | Farmacovigilancia y alertas |
 | **Microservicio** | `Farmacia.ValidacionClinica.Api` |
-| **Rama de trabajo** | `feature/CDU-17-registro-sram` |
+| **Rama de trabajo** | `feature/22041153ems` |
 | **Responsable** | @22041153ems |
 
 ## Descripción y efecto

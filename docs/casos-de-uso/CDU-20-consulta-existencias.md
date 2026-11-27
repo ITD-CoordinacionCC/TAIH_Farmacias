@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Servicios Clínicos |
 | **Grupo funcional** | Inventario, red fría y abasto |
 | **Microservicio** | `Farmacia.CatalogoInventario.Api` |
-| **Rama de trabajo** | `feature/CDU-20-consulta-existencias` |
+| **Rama de trabajo** | `feature/angelornelas16` |
 | **Responsable** | @AngelOrnelas16 |
 
 ## Descripción y efecto

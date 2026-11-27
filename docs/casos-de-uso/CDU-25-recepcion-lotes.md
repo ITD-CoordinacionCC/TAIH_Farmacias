@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Almacén General |
 | **Grupo funcional** | Inventario, red fría y abasto |
 | **Microservicio** | `Farmacia.CatalogoInventario.Api` |
-| **Rama de trabajo** | `feature/CDU-25-recepcion-lotes` |
+| **Rama de trabajo** | `feature/angelornelas16` |
 | **Responsable** | @AngelOrnelas16 |
 
 ## Descripción y efecto

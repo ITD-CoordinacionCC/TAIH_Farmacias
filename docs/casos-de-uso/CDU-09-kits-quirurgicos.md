@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Quirófano |
 | **Grupo funcional** | Distribución hospitalaria |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-09-kits-quirurgicos` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto

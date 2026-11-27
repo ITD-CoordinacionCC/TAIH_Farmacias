@@ -8,7 +8,7 @@
 | **Módulos involucrados** | Consulta Externa, Almacén |
 | **Grupo funcional** | Dispensación ambulatoria y vales |
 | **Microservicio** | `Farmacia.Dispensacion.Api` |
-| **Rama de trabajo** | `feature/CDU-05-vale-desabasto` |
+| **Rama de trabajo** | `feature/bolstalex` |
 | **Responsable** | @BolstAlex |
 
 ## Descripción y efecto
