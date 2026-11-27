@@ -1,0 +1,71 @@
+name: Seguimiento de CDU
+
+# Mueve el estado de los issues de CDU según avanzan los PR:
+#   PR abierto a develop        -> estado:en-desarrollo
+#   PR fusionado en develop     -> estado:integrado-develop
+#   PR fusionado en staging     -> estado:en-staging
+#   PR fusionado en main        -> estado:liberado (y se cierra el issue)
+
+on:
+  pull_request:
+    types: [opened, reopened, closed]
+    branches: [develop, staging, main]
+
+permissions:
+  issues: write
+  pull-requests: read
+  contents: read
+
+jobs:
+  actualizar:
+    name: Actualizar estado de CDU
+    runs-on: ubuntu-latest
+    if: github.event.action != 'closed' || github.event.pull_request.merged == true
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      ACCION: ${{ github.event.action }}
+      DESTINO: ${{ github.base_ref }}
+      ORIGEN: ${{ github.head_ref }}
+      TITULO: ${{ github.event.pull_request.title }}
+      CUERPO: ${{ github.event.pull_request.body }}
+    steps:
+      - name: Identificar CDUs y actualizar issues
+        run: |
+          COMMITS=$(gh pr view "$PR" --json commits --jq '.commits[].messageHeadline' || true)
+          CDUS=$(printf '%s\n%s\n%s\n%s\n' "$ORIGEN" "$TITULO" "$CUERPO" "$COMMITS" \
+                 | grep -Eo 'CDU-[0-9]{2}' | sort -u || true)
+          if [ -z "$CDUS" ]; then
+            echo "El PR no menciona ningún CDU; nada que actualizar."
+            exit 0
+          fi
+
+          if [ "$ACCION" != "closed" ]; then
+            [ "$DESTINO" = "develop" ] || exit 0
+            NUEVO="estado:en-desarrollo"
+          else
+            case "$DESTINO" in
+              develop) NUEVO="estado:integrado-develop" ;;
+              staging) NUEVO="estado:en-staging" ;;
+              main)    NUEVO="estado:liberado" ;;
+            esac
+          fi
+
+          for CDU in $CDUS; do
+            NUM=$(gh issue list --state all --label caso-de-uso --search "$CDU in:title" \
+                  --json number,title --jq ".[] | select(.title | startswith(\"$CDU \")) | .number" | head -n 1)
+            if [ -z "$NUM" ]; then
+              echo "::warning::No se encontró issue para $CDU"
+              continue
+            fi
+            for E in estado:en-desarrollo estado:integrado-develop estado:en-staging estado:liberado; do
+              [ "$E" = "$NUEVO" ] || gh issue edit "$NUM" --remove-label "$E" >/dev/null 2>&1 || true
+            done
+            gh issue edit "$NUM" --add-label "$NUEVO"
+            gh issue comment "$NUM" --body "$CDU → \`$NUEVO\` (PR #$PR hacia \`$DESTINO\`)."
+            if [ "$NUEVO" = "estado:liberado" ]; then
+              gh issue close "$NUM" --reason completed
+            fi
+            echo "$CDU (#$NUM) -> $NUEVO"
+          done

@@ -1,0 +1,31 @@
+# Responsables de revisión por área
+/.github/ @22041153ems
+/src/Farmacia.CatalogoInventario.Api/ @AngelOrnelas16
+/src/Farmacia.Dispensacion.Api/ @BolstAlex @22041153ems
+/src/Farmacia.ValidacionClinica.Api/ @22041153ems @AngelOrnelas16
+/src/Farmacia.MedicamentosControlados.Api/ @22041153ems
+/docs/casos-de-uso/CDU-01-validar-vigencia-derechos.md @BolstAlex
+/docs/casos-de-uso/CDU-02-validar-receta.md @BolstAlex
+/docs/casos-de-uso/CDU-03-receta-resurtible.md @BolstAlex
+/docs/casos-de-uso/CDU-04-dispensacion-completa.md @BolstAlex
+/docs/casos-de-uso/CDU-05-vale-desabasto.md @BolstAlex
+/docs/casos-de-uso/CDU-06-canje-vale.md @BolstAlex
+/docs/casos-de-uso/CDU-07-carro-de-paro.md @BolstAlex
+/docs/casos-de-uso/CDU-08-dosis-unitaria.md @BolstAlex
+/docs/casos-de-uso/CDU-09-kits-quirurgicos.md @BolstAlex
+/docs/casos-de-uso/CDU-10-devolucion-medicacion.md @22041153ems
+/docs/casos-de-uso/CDU-11-interacciones-duplicidades.md @22041153ems
+/docs/casos-de-uso/CDU-12-validacion-alergias.md @22041153ems
+/docs/casos-de-uso/CDU-13-ajuste-posologico.md @22041153ems
+/docs/casos-de-uso/CDU-14-receta-especial-controlados.md @22041153ems
+/docs/casos-de-uso/CDU-15-libro-narcoticos.md @22041153ems
+/docs/casos-de-uso/CDU-16-desecho-envases.md @22041153ems
+/docs/casos-de-uso/CDU-17-registro-sram.md @22041153ems
+/docs/casos-de-uso/CDU-18-reporte-farmacovigilancia.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-19-bloqueo-lote.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-20-consulta-existencias.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-21-cadena-frio.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-22-semaforo-caducidades.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-23-baja-tecnica.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-24-requisicion-reorden.md @AngelOrnelas16
+/docs/casos-de-uso/CDU-25-recepcion-lotes.md @AngelOrnelas16

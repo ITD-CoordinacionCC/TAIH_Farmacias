@@ -1,0 +1,19 @@
+name: Reporte de error
+description: Algo no funciona como se espera
+labels: ["bug"]
+body:
+  - type: input
+    id: cdu
+    attributes:
+      label: CDU relacionado
+      placeholder: "CDU-04"
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: ¿Qué pasó y qué se esperaba?
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir

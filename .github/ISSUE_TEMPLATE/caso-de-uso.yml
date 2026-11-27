@@ -1,0 +1,43 @@
+name: Nuevo caso de uso (CDU)
+description: Registrar un caso de uso nuevo del Servicio de Farmacias
+title: "CDU-XX · Nombre del caso de uso"
+labels: ["caso-de-uso"]
+body:
+  - type: input
+    id: actor
+    attributes:
+      label: Actor principal
+    validations:
+      required: true
+  - type: dropdown
+    id: microservicio
+    attributes:
+      label: Microservicio
+      options:
+        - Farmacia.CatalogoInventario.Api
+        - Farmacia.Dispensacion.Api
+        - Farmacia.ValidacionClinica.Api
+        - Farmacia.MedicamentosControlados.Api
+    validations:
+      required: true
+  - type: input
+    id: tipo
+    attributes:
+      label: Tipo de operación
+      placeholder: "Lectura / Escritura (ACID) / Evento ..."
+  - type: input
+    id: modulos
+    attributes:
+      label: Módulos involucrados
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción y efecto
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      value: |
+        - [ ] 

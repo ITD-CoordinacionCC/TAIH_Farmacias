@@ -1,0 +1,67 @@
+name: CI .NET
+
+on:
+  push:
+    branches: [main, staging, develop, "feature/**", "fix/**", "hotfix/**"]
+  pull_request:
+    branches: [main, staging, develop]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detectar:
+    name: Detectar proyectos .NET
+    runs-on: ubuntu-latest
+    outputs:
+      hay_dotnet: ${{ steps.buscar.outputs.hay_dotnet }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: buscar
+        run: |
+          if find . -path ./.git -prune -o \( -name '*.sln' -o -name '*.slnx' -o -name '*.csproj' \) -print | grep -q .; then
+            echo "hay_dotnet=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "hay_dotnet=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Aún no hay proyectos .NET en el repositorio; se omite la compilación."
+          fi
+
+  build-test:
+    name: Compilar y probar
+    needs: detectar
+    if: needs.detectar.outputs.hay_dotnet == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restaurar, compilar y probar
+        run: |
+          SLN=$(find . -maxdepth 2 \( -name '*.slnx' -o -name '*.sln' \) | head -n 1)
+          if [ -n "$SLN" ]; then
+            OBJETIVOS="$SLN"
+          else
+            OBJETIVOS=$(find . -name '*.csproj' -not -path './.git/*')
+          fi
+          for p in $OBJETIVOS; do
+            echo "::group::$p"
+            dotnet restore "$p"
+            dotnet build "$p" -c Release --no-restore
+            dotnet test "$p" -c Release --no-build --logger "trx" --results-directory ./resultados-pruebas
+            echo "::endgroup::"
+          done
+
+      - name: Publicar resultados de pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-pruebas
+          path: resultados-pruebas
+          if-no-files-found: ignore

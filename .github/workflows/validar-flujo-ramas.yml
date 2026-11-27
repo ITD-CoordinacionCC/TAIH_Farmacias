@@ -1,0 +1,43 @@
+name: Validar flujo de ramas
+
+# Flujo: feature/CDU-XX-* -> develop -> staging -> main
+#        hotfix/*         -> main / staging / develop
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validar flujo de ramas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Revisar nombre de rama y destino
+        env:
+          ORIGEN: ${{ github.head_ref }}
+          DESTINO: ${{ github.base_ref }}
+          TITULO: ${{ github.event.pull_request.title }}
+        run: |
+          echo "PR: $ORIGEN -> $DESTINO"
+          case "$DESTINO" in
+            main)    PERMITIDO='^(staging|hotfix/.+)$' ;;
+            staging) PERMITIDO='^(develop|hotfix/.+)$' ;;
+            develop) PERMITIDO='^(feature/CDU-[0-9]{2}-[a-z0-9-]+|fix/.+|chore/.+|docs/.+|hotfix/.+|staging|main)$' ;;
+            *)       echo "Destino '$DESTINO' sin reglas; se permite."; exit 0 ;;
+          esac
+
+          if ! printf '%s' "$ORIGEN" | grep -Eq "$PERMITIDO"; then
+            echo "::error::No se permite PR de '$ORIGEN' hacia '$DESTINO'. Flujo esperado: feature/CDU-XX-* -> develop -> staging -> main (hotfix/* puede ir a main)."
+            exit 1
+          fi
+
+          # Una rama de CDU debe mencionar su CDU en el título del PR
+          CDU=$(printf '%s' "$ORIGEN" | grep -Eo '^feature/CDU-[0-9]{2}' | sed 's#feature/##' || true)
+          if [ -n "$CDU" ] && ! printf '%s' "$TITULO" | grep -q "$CDU"; then
+            echo "::error::El título del PR debe incluir '$CDU' (ejemplo: '$CDU: descripción del cambio')."
+            exit 1
+          fi
+          echo "Flujo válido."
